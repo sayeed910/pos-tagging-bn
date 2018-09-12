@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/main.js"></script>
+    <script src="js/jquery-3.3.1.js"></script>
+</head>
+
+<body style="background:#e6e6e6">
+    <div style="margin-left:10%; margin-right:10%; background:white; width:80%; border-style:solid; border-width: 2px;">
+        <h1 style="text-align:center;">NLP Data Collection</h1>
+    </div>
+    </br>
+    <!--POS Tagging -->
+    <div style="margin-left:10%; margin-right:10%; width: 80%; background:white; border-style:solid; border-width: 1px; border-radius:5px;">
+        <h3 style="text-align:center;">Parts of Speech Tagging</h3>
+        <p style="margin-left:1%; margin-right: 1%">Parts-of-speech Parts-of-speech Parts-of-speech Parts-of-speech Parts-of-speech Parts-of-speech Parts-of-speech Parts-of-speech Parts-of-speech Parts-of-speech Parts-of-speech Parts-of-speech Parts-of-speech
+        </p>
+        <a style="margin-left:90%; margin-bottom:1%;" href="pos-tagging" class="btn btn-success btn-press" id="pos-tagging">Start</a>
+    </div>
+    <!--Data Validation-->
+    </br>
+    <div style="margin-left:10%; margin-right:10%; width: 80%; background:white; border-style:solid; border-width: 1px; border-radius:5px;">
+        <h3 style="text-align:center;">Data Validation</h3>
+        <p style="margin-left:1%; margin-right: 1%">Parts-of-speech Parts-of-speech Parts-of-speech Parts-of-speech Parts-of-speech Parts-of-speech Parts-of-speech Parts-of-speech Parts-of-speech Parts-of-speech Parts-of-speech Parts-of-speech Parts-of-speech
+        </p>
+        <button style="margin-left:90%; margin-bottom:1%;" type="button" class="btn btn-success btn-press" id="data-validation">Start</button>
+    </div>
+    <!--Name Entity Recongnition -->
+    </br>
+    <div style="margin-left:10%; margin-right:10%; width: 80%; background:white; border-style:solid; border-width: 1px; border-radius:5px;">
+        <h3 style="text-align:center;">Name Entity Recongnition</h3>
+        <p style="margin-left:1%; margin-right: 1%">Parts-of-speech Parts-of-speech Parts-of-speech Parts-of-speech Parts-of-speech Parts-of-speech Parts-of-speech Parts-of-speech Parts-of-speech Parts-of-speech Parts-of-speech Parts-of-speech Parts-of-speech
+        </p>
+        <button style="margin-left:90%; margin-bottom:1%;" type="button" class="btn btn-success btn-press" id="name-entity">Start</button>
+    </div>
+</body>
+<script>
+    //Testing of Json object passing
+    $(document).ready(function() {
+        $(document).on('click', '.btn-press', function() {
+            var id = $(this).attr('id');
+            location.href = id + ".html";
+            return false;
+        });
+        /*$.ajax({
+            url: "fetch.php",
+            method: "post",
+            dataType: "json",
+            data: {},
+            success: function(data) {
+                var json = data;
+                alert(data.sentence);
+                for (var key in data) {
+                    if (data.hasOwnProperty(key)) {
+                        alert(key + " " + data[key]);
+                    }
+                }
+            }
+        });*/
+
+        /*var result = {
+            name: "rizvee",
+            age: "21"
+        };
+
+        $.ajax({
+            url: "fetch.php",
+            method: "post",
+            data: {
+                value: JSON.stringify(result)
+            },
+            success: function(data) {
+                alert(data);
+            }
+        });*/
+
+    });
+</script>
+
+</html>

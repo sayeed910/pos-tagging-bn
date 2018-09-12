@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/sentence_display.css">
+    <script src="js/jquery-3.3.1.js"></script>
+</head>
+
+
+<body style="background:#e6e6e6;">
+    <!--Header-->
+    <div style="margin-left:10%; margin-right:10%; margin-bottom:1%; background:white; width:80%; border-style:solid; border-width: 2px;">
+        <h1 style="text-align:center;">NLP Data Collection</h1>
+    </div>
+
+    <!--Menu option -->
+    <div>
+        <div class="btn-group btn-group-justified" style="width:60%; margin-left:20%; margin-right:20%;">
+            <a class="btn btn-success" href="pos-tagging.html">Pos Tag</a>
+            <a class="btn btn-default" href="data-validation.html">Validation</a>
+            <a class="btn btn-default" href="name-entity.html">Name Entity</a>
+        </div>
+    </div>
+
+
+    <!-- Sentence -->
+    <div style="margin-top:10%; margin-left:10%; margin-right:10%;">
+        <div id="input-sentence" style="margin-top:10%;">
+        </div>
+    </div>
+    <!-- Tag Buttons -->
+    <div id="tag-box">
+    </div>
+    <!--Next / finish button,previous word, next word -->
+    <div id="button-div" style="margin-top:1%;margin-left:30%; display:grid; grid-template-columns:20% 20% 20%;">
+        <button type="button" class="btn btn-danger" style="width:100%;" id="backward">আগের শব্দ(Arrow Left)</button>
+        <button type="button" class="btn btn-primary" style="width:100%;" id="forward">পরের শব্দ(Arrow Right)</button>
+        <button type="button" class="btn btn-success" style="width:100%;" id="next">Next Sentence(Enter)</button>
+    </div>
+
+</body>
+
+<script src="js/pos-tagging.js">
+</script>
+
+</html>
