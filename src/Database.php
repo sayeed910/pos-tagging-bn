@@ -8,12 +8,33 @@
 
 namespace App;
 require_once __DIR__ . './sentences.php';
+$dbconfig = require_once __DIR__ . '../database/config.php';
 
 class Database
 {
-
-    public function execute(string $query) : array
+    private $connection;
+    /** @var $lastStatement \PDOStatement */
+    private $lastStatement;
+    public function __construct()
     {
+        global $dbconfig;
+        $server = $dbconfig['HOST_NAME'];
+        $user = $dbconfig['USER_NAME'];
+        $dbname = $dbconfig['DATABASE_NAME'];
+        $password = $dbconfig['PASSWORD'];
+        try{
+            $this->connection = new \PDO("mysql:host=$server;dbname=$dbname", $user, $password );
+        } catch (\Exception $ex){
+            var_dump($ex);
+        }
+        $this->lastStatement = null;
+    }
+
+
+
+    public function prepare(string $query) : array
+    {
+//        $this->lastStatement = $this->connection->prepare($query);
         $sentences = get_sentences(10);
         $result = [];
 
@@ -27,6 +48,26 @@ class Database
         return $result;
 
 
+    }
+
+    public function bindParam(string $param, $value)
+    {
+       $this->lastStatement->bindParam($param, $value);
+    }
+
+    public function execute()
+    {
+        $this->lastStatement->execute();
+    }
+
+    public function beginTransaction()
+    {
+        $this->connection->beginTransaction();
+    }
+
+    public function endTransaction()
+    {
+        $this->connection->commit();
     }
 
 }

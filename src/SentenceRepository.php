@@ -23,7 +23,7 @@ class SentenceRepository
 
     public function getRandom($count = 1)
     {
-        $resultset = $this->connection->execute("select s_id, sentence from sentences order by rand() limit ". $count);
+        $resultset = $this->connection->prepare("select s_id, sentence from sentences order by rand() limit ". $count);
         $sentences = [];
         foreach ($resultset as $row)
             $sentences[] = Sentence::newInstance($row['sentence'], $row['id']);
